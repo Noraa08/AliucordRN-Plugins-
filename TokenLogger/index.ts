@@ -16,7 +16,7 @@ export default class TokenLogger extends Plugin {
                 }
             ],
             execute: (args, ctx) => {
-                this.logger.info(getByProps("getToken").getToken());
+                this.logger.info(`Hola`);
             }
         });
     }
