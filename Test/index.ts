@@ -1,15 +1,23 @@
 import { Plugin } from "aliucord/entities"; 
-import { MessageActions, GuildMemberStore } from 'aliucord/metro'; 
+import { MessageActions, GuildMemberStore, getByProps } from 'aliucord/metro'; 
   
 export default class Test extends Plugin { 
     public async start() { 
-  
-        this.commands.registerCommand({ 
+        
+        const ClydeUtils = getByProps("sendBotMessage");
+
+        this.commands.registerCommand({ 
             name: "test", 
             description: "test plugin", 
             options: [], 
             execute(_, ctx) { 
-                MessageActions.sendMessage(ctx.channel.id, {content: "Hello! This is working"}) 
+                const embed = {
+                            type: 'rich',
+                            title: "EmbedTest",
+                            color: 0x303136,
+                            fields: []
+                        } as any;
+                ClydeUtils.sendBotMessage(ctx.channel.id, "Hello! This is working", [embed]) 
             } 
         }); 
     } 
