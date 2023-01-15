@@ -5,7 +5,7 @@ export default class Test extends Plugin {
     public async start() { 
   
         this.commands.registerCommand({ 
-            name: "tesy", 
+            name: "test", 
             description: "test plugin", 
             options: [], 
             execute(_, ctx) { 
